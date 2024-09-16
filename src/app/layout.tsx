@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
 import { authOptions } from '../pages/api/auth/[...nextauth]';
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -23,7 +21,7 @@ export default async function RootLayout({
   const sessionEmail = session?.user?.email;
 
   const allowedUser = atob(process.env.NEXTUSER ?? '') === sessionEmail;
-  console.log('Test:::', allowedUser)
+  // console.log('Test:::', allowedUser)
 
   return (
     <html lang="en">
